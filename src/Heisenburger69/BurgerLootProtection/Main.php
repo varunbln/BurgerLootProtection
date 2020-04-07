@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Heisenburger69\BurgerDropsProtection;
+namespace Heisenburger69\BurgerLootProtection;
 
 use pocketmine\entity\Entity;
 use pocketmine\item\Item;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Heisenburger69\BurgerDropsProtection;
+namespace Heisenburger69\BurgerLootProtection;
 
 use pocketmine\entity\object\ItemEntity;
 use pocketmine\event\inventory\InventoryPickupItemEvent;
@@ -30,7 +30,7 @@ class ProtectedItemEntity extends ItemEntity
             if(!Main::$instance->getConfig()->get("enable-protection-message")) return;
 
             $time = ceil(($this->getProtectionTime() - $this->age) / 20);
-            $message = $this->protectionMessage;
+            $message = $this->getProtectionMessage();
             $message = str_replace(["{TIME}", "{KILLER}"], [$time, $this->owner], $message);
             $message = TextFormat::colorize($message);
 

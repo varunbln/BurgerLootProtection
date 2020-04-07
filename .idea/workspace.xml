@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6a99adf-4857-4325-9fde-400332f31a7c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Heisenburger69/BurgerDropsProtection/EventListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Heisenburger69/BurgerDropsProtection/EventListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Heisenburger69/BurgerDropsProtection/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Heisenburger69/BurgerDropsProtection/Main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Heisenburger69/BurgerDropsProtection/ProtectedItemEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Heisenburger69/BurgerDropsProtection/ProtectedItemEntity.php" afterDir="false" />
-    </list>
+    <list default="true" id="b6a99adf-4857-4325-9fde-400332f31a7c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +14,7 @@
     </execution>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../BurgerLootProtection" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -33,7 +26,15 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../pmmp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BurgerLootProtection" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\varun\Downloads\Plugs\ArcadiumHCFMain\ArcadiumHCFMain\src\friscowz\hc\utils\ShockNetwork\plugins\BurgerLootProtection" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\varun\Downloads\Plugs\ArcadiumHCFMain\ArcadiumHCFMain\src\friscowz\hc\utils\ShockNetwork\plugins\BurgerLootProtection" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -58,7 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1586179861586</updated>
       <workItem from="1586179863232" duration="4686000" />
-      <workItem from="1586268044321" duration="4716000" />
+      <workItem from="1586268044321" duration="5197000" />
     </task>
     <servers />
   </component>

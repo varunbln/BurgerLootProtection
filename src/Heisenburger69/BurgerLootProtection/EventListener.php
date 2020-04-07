@@ -1,6 +1,6 @@
 <?php
 
-namespace Heisenburger69\BurgerDropsProtection;
+namespace Heisenburger69\BurgerLootProtection;
 
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\Listener;
