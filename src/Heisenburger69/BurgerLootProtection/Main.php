@@ -25,6 +25,7 @@ class Main extends PluginBase
         Entity::registerEntity(ProtectedItemEntity::class, true, ["protectedItemEntity"]);
         $this->saveDefaultConfig();
         self::$instance = $this;
+        UpdateNotifier::checkUpdate($this, $this->getDescription()->getName(), $this->getDescription()->getVersion());
     }
 
     /**
