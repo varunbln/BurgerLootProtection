@@ -6,6 +6,7 @@ namespace Heisenburger69\BurgerDropsProtection;
 
 use pocketmine\entity\Entity;
 use pocketmine\item\Item;
+use pocketmine\level\Level;
 use pocketmine\math\Vector3;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
@@ -13,11 +14,55 @@ use pocketmine\plugin\PluginBase;
 class Main extends PluginBase
 {
 
+    /**
+     * @var Main
+     */
+    public static $instance;
+
     public function onEnable(): void
     {
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
         Entity::registerEntity(ProtectedItemEntity::class, true, ["protectedItemEntity"]);
         $this->saveDefaultConfig();
+        self::$instance = $this;
+    }
+
+    /**
+     * @param Player $player
+     * @return bool
+     */
+    public function checkProtectionPerms(Player $player): bool
+    {
+        if(!$this->getConfig()->get("enable-permission")) return true;
+        if($player->hasPermission("burgerdropsprotection.use")) return true;
+        return false;
+    }
+
+    /**
+     * @param Level $level
+     * @return bool
+     */
+    public function checkProtectionLevel(Level $level): bool
+    {
+        $blacklist = $this->getConfig()->get("enable-world-blacklist");
+        $whitelist = $this->getConfig()->get("enable-world-whitelist");
+        $levelName = $level->getName();
+        
+        if($blacklist === $whitelist) return true;
+
+        if($blacklist) {
+            $disallowedWorlds = $this->getConfig()->get("blacklisted-worlds");
+            if(in_array($levelName, $disallowedWorlds)) return false;
+            return true;
+        }
+        
+        if($whitelist) {
+            $allowedWorlds = $this->getConfig()->get("whitelisted-worlds");
+            if(in_array($levelName, $allowedWorlds)) return true;
+            return false;
+        }
+        
+        return false;
     }
 
     /**
@@ -44,9 +89,20 @@ class Main extends PluginBase
 
         if (!$itemEntity instanceof ProtectedItemEntity) return null;
 
+        $timeSecs = $this->getConfig()->get("protection-time");
+        if(!is_int($timeSecs)) {
+            $timeSecs = 15;
+        }
+        $timeTicks = $timeSecs * 20;
+        $itemEntity->setProtectionTime($timeTicks);
+
+        if($this->getConfig()->get("enable-protection-message")) {
+            $itemEntity->setProtectionMessage((string)$this->getConfig()->get("protection-message"));
+        }
         $itemEntity->setOwner($damager->getName());
         $itemEntity->spawnToAll();
         return $itemEntity;
     }
+
 
 }

@@ -7,21 +7,37 @@ use pocketmine\event\inventory\InventoryPickupItemEvent;
 use pocketmine\item\Item;
 use pocketmine\network\mcpe\protocol\TakeItemActorPacket;
 use pocketmine\Player;
+use pocketmine\utils\TextFormat;
 
 class ProtectedItemEntity extends ItemEntity
 {
 
     /** @var int */
-    private $protectionTime = 200; //in ticks ree
+    private $protectionTime = 200; //in ticks
 
+    /** @var string */
+    private $protectionMessage;
+
+    /**
+     * @param Player $player
+     */
     public function onCollideWithPlayer(Player $player): void
     {
         if ($this->getPickupDelay() !== 0) {
             return;
         }
         if ($player->getName() !== $this->owner && $this->age < $this->getProtectionTime()) {
+            if(!Main::$instance->getConfig()->get("enable-protection-message")) return;
+
+            $time = ceil(($this->getProtectionTime() - $this->age) / 20);
+            $message = $this->protectionMessage;
+            $message = str_replace(["{TIME}", "{KILLER}"], [$time, $this->owner], $message);
+            $message = TextFormat::colorize($message);
+
+            $player->sendMessage($message);
             return;
         }
+
         $item = $this->getItem();
         $playerInventory = $player->getInventory();
 
@@ -61,5 +77,15 @@ class ProtectedItemEntity extends ItemEntity
     public function setProtectionTime(int $ticks): void
     {
         $this->protectionTime = $ticks;
+    }
+
+    public function getProtectionMessage(): string
+    {
+        return $this->protectionMessage;
+    }
+
+    public function setProtectionMessage(string $message): void
+    {
+        $this->protectionMessage = $message;
     }
 }

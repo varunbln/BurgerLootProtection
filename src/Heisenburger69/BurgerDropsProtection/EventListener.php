@@ -30,14 +30,21 @@ class EventListener implements Listener
     public function onDeath(PlayerDeathEvent $event): void
     {
         $player = $event->getPlayer();
+
+        if(!$this->plugin->getConfig()->get("enable-protection")) return;
+        if(!$this->plugin->checkProtectionPerms($player)) return;
+        if(!$this->plugin->checkProtectionLevel($player->getLevel())) return;
+
         $cause = $player->getLastDamageCause();
         if (!$cause instanceof EntityDamageByEntityEvent) {
             return;
         }
+
         $damager = $cause->getDamager();
         if (!$damager instanceof Player) {
             return;
         }
+
         foreach ($event->getDrops() as $drop) {
             $this->plugin->dropProtectedItem($player, $drop, $damager);
         }

@@ -5,6 +5,10 @@ enable-protection: true
 # After this time, anyone can pick up the items dropped.
 protection-time: 15
 
+# If this is set to true, item drops on death will only be protected when the killer has the
+# permission "burgerdropsprotection.use".
+enable-permission: false
+
 # Set this to true if you want to use the blacklisted-worlds settings.
 # If both enable-world-blacklist and disable-world-blacklist are set to the same setting,
 # drop protection on death will be enabled for all words.
@@ -30,6 +34,7 @@ enable-protection-message: true
 
 # This is the message sent to players when they try to pick up a protected item.
 # The time left before the item becomes unprotected is replaced by {TIME}.
+# The killer's name is replaced by {KILLER}.
 # You may use the symbol & for color codes.
-protection-message: "&cYou cannot pick up this item for {TIME} seconds"
+protection-message: "&cYou cannot pick up this item for {TIME} seconds. It belongs to {KILLER}"
 
