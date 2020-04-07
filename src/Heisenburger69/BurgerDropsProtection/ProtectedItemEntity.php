@@ -12,14 +12,14 @@ class ProtectedItemEntity extends ItemEntity
 {
 
     /** @var int */
-    private $protectionTime = 10;
+    private $protectionTime = 200; //in ticks ree
 
     public function onCollideWithPlayer(Player $player): void
     {
         if ($this->getPickupDelay() !== 0) {
             return;
         }
-        if ($player->getName() !== $this->owner && $this->age < $this->getProtectionTime() * 20) {
+        if ($player->getName() !== $this->owner && $this->age < $this->getProtectionTime()) {
             return;
         }
         $item = $this->getItem();
@@ -58,8 +58,8 @@ class ProtectedItemEntity extends ItemEntity
         return $this->protectionTime;
     }
 
-    public function setProtectionTime(int $seconds): void
+    public function setProtectionTime(int $ticks): void
     {
-        $this->protectionTime = $seconds;
+        $this->protectionTime = $ticks;
     }
 }
