@@ -10,6 +10,8 @@ use pocketmine\level\Level;
 use pocketmine\math\Vector3;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
+use JackMD\UpdateNotifier\UpdateNotifier;
+use function in_array;
 
 class Main extends PluginBase
 {
