@@ -1,13 +1,13 @@
 ---
-name: BurgerDropsProtection
+name: BurgerLootProtection
 version: 0.0.1
-main: Heisenburger69\BurgerDropsProtection\Main
+main: Heisenburger69\BurgerLootProtection\Main
 api: 3.0.0
 description: Pocketmine plugin to prevent players other than the killer from picking up drops when a player dies
 website: github.com/Heisenburger69
 
 permissions:
-  burgerdropsprotection.use:
+  burgerlootprotection.use:
     default: op
     description: When players with this permission kill other players, the loot becomes protected
 ...

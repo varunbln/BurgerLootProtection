@@ -6,7 +6,7 @@ enable-protection: true
 protection-time: 15
 
 # If this is set to true, item drops on death will only be protected when the killer has the
-# permission "burgerdropsprotection.use".
+# permission "burgerlootprotection.use".
 enable-permission: false
 
 # Set this to true if you want to use the blacklisted-worlds settings.

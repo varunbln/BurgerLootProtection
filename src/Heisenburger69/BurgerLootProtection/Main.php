@@ -34,7 +34,7 @@ class Main extends PluginBase
     public function checkProtectionPerms(Player $player): bool
     {
         if(!$this->getConfig()->get("enable-permission")) return true;
-        if($player->hasPermission("burgerdropsprotection.use")) return true;
+        if($player->hasPermission("burgerlootprotection.use")) return true;
         return false;
     }
 
