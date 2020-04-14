@@ -34,7 +34,7 @@ class ProtectedItemEntity extends ItemEntity
             $message = str_replace(["{TIME}", "{KILLER}"], [$time, $this->owner], $message);
             $message = TextFormat::colorize($message);
 
-            $player->sendMessage($message);
+            $player->sendTip($message);
             return;
         }
 

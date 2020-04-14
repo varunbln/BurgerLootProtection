@@ -1,5 +1,5 @@
 # BurgerLootProtection
-Pocketmine plugin to prevent players other than the killer from picking up drops when a player is killed.
+This plugin implements loot protection to prevent players other than the killer from picking up drops when a player is killed. This helps in situations where other players snipe the loot from the kill rather than the actual killer getting the loot.
 ### Features:
  * Helpful to prevent stealing of loot and make sure the killer gets the loot
  * The duration of the protection is completely customizable and can be set to any amount required.
